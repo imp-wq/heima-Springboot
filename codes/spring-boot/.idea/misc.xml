@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/springboot_01_quickstart/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_02_base_configuration/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_03_yaml/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_04_junit/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_05_mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_06_Mybatis_plus/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_07_druid/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_08_ssmp/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

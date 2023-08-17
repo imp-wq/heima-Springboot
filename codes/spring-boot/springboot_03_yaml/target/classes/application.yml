@@ -1,0 +1,16 @@
+user: lisi
+hobbies:
+  - basketball
+  - swim
+friends:
+  - name: zhangsan
+  - age: 18
+
+baseDir: c:\windows
+tmpDir: ${baseDir}\temp
+
+dataSource:
+  drive: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhostprintboot_db
+  username: root
+  password: root666
