@@ -133,4 +133,77 @@
   Query OK, 0 rows affected (0.04 sec)
   ```
 
-### 临时属性
+## 临时属性
+
+* 命令行运行服务时，可以通过`--server.port=8080`的形式添加临时属性，在本次运行时暂时覆盖原属性。
+
+  多个临时属性使用空格分隔。
+
+* 各种配置中的属性优先级：https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-external-config.html
+* 临时属性通过springboot启动类`SpringApplication.run`方法的第二个参数args接收，如果不想用户使用临时属性可以不传这个参数。
+
+## 多环境
+
+* 可以通过`---`分割配置文件，为生产/测试/上线等不同环境配置不同的属性值。
+
+  ```yaml
+  spring:
+    profiles:
+      active: dev # 使用生产环境
+  # 公共配置
+  ...
+  ---
+  spring:
+    config:
+      activate:
+        on-profile: dev # 生产环境名
+  
+  # 生产环境的配置
+  server:
+    port: 80
+    
+  ---
+  spring:
+    config:
+      activate:
+        on-profile: test # 测试生产环境名
+  # 测试环境的配置
+  server:
+    port: 81
+  ```
+
+
+* 也可以将不同环境的配置放在单独的文件中，文件名命名为`application-环境名.yml`的形式。
+
+  主配置文件中再通过`spring.profiles.active`指定当前环境。
+
+  配置文件中无需再通过`spring...on-profile`指定环境名。
+
+  * 公共配置放在`application.yml`中
+  * 冲突配置放在各个`application-环境名.yml`中
+
+## 自定义配置文件
+
+* 可以通过临时属性`--spring.config.name="文件名"`指定配置文件，注意这里文件名不加后缀名。
+
+  `--spring.config.location=classpath:/my-config.yml`
+
+## 分组配置
+
+* 可以将配置文件按功能分为不同模块，放进单独的配置文件中。
+
+  * 如dev环境的MVC，DB配置分别放入`application-devMVC.yml`,`application-devDB.yml`文件中。
+
+  * 主配置文件中通过`spring.profiles.include`加入各个模块文件。
+
+  * 用group替代include，为不同环境指定各自的模块。
+
+```yaml
+spring:
+	profiles:
+		active: dev
+		group:
+			"dev": devDB,devMVC
+			"pro": proDB,proMVC
+```
+

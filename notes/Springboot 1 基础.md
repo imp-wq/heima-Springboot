@@ -120,6 +120,8 @@
   tmpDir: ${baseDir}\temp
   ```
 
+### Spring Read Yml
+
 * spring读取resources中的yaml文件：
 
   ```java
@@ -192,3 +194,21 @@
      ```
 
 
+
+* 通过`@Value`注解无法直接读取Map, List类型的数据。
+
+  [spring @Value注入map、List、Bean、static变量方式及详细使用_@value map_ZhaoYingChao88的博客-CSDN博客](https://blog.csdn.net/ZYC88888/article/details/88748516)
+
+  * Map：map在yml文件中必须表示为string类型。
+
+    ```yml
+    myMap: "{key: 'value', key2: 'value2'}"
+    ```
+    ```java
+    @Value("#{${aaa}}")
+    private Map map;
+    ```
+
+* 通过`@ConfigurationProperties`注入map类型时，需保证map field的名称与yml文件中一致。
+
+  

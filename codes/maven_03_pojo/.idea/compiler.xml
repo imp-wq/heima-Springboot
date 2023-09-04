@@ -6,15 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springboot_xx_template" />
-        <module name="springboot_03_yaml" />
+        <module name="maven_03_pojo" />
       </profile>
     </annotationProcessing>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="springboot_03_yaml" options="-parameters" />
-      <module name="springboot_xx_template" options="-parameters" />
-    </option>
   </component>
 </project>
